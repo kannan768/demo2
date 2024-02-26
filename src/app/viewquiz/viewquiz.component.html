@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="form-group">
+    <label for="subject">Select a Subject:</label>
+    <select id="subject" class="form-control" [(ngModel)]="selectedSubject" (change)="getQuestions()">
+      <option *ngFor="let subject of subjects|orderBy"  [value]="subject">{{ subject |lowercase }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="questions.length > 0" class="mt-4">
+    <h2>Questions for {{ selectedSubject }}</h2>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Questions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let question of questions">
+
+          <td>{{ question }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Async Pipe</h4>
+    <p ngNonBindable>{{time | async}}</p>
+    <p>{{time|async}}</p>
+  </div>
+</div>
+                    

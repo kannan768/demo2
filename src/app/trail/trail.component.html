@@ -1,0 +1,27 @@
+<input type="text" [(ngModel)]="name">
+<div *ngFor="let user of user" [ngClass]="{
+  'text-success':user.id>1,
+  'text-danger':user.id<2
+}">
+  {{user.id}}
+  {{user.name|uppercase}}
+  {{user.username|lowercase}}
+</div>
+<button type="button" class="btn brightness_1" (click)="toggle()">click me</button>
+<div *ngIf="toggling">
+  hello
+</div>
+<div>
+<input type="text" appCustom>
+</div>
+<div>
+  <input type="text" [(ngModel)]="searchText" placeholder="search">
+  <ul>
+    <li *ngFor="let users of user">
+  {{users.name}}
+    </li>
+  </ul>
+</div>
+<div>
+  <input type="text" appTextonly>
+</div>

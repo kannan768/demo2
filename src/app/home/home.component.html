@@ -1,0 +1,26 @@
+<!-- frontend/src/app/quiz-list/quiz-list.component.html -->
+<div *ngFor="let quiz of quizzes" class="quiz-item card mb-3">
+  <div class="card-body">
+    <h3 class="card-title">Subject: {{ quiz.subject }}</h3>
+    <p class="card-text">Questions: {{ quiz.question }}</p>
+
+    <div class="options-container">
+      <div *ngFor="let option of quiz.options" let i="index" class="option-item">
+        <label>
+          <input type="radio" name="{{ quiz._id }}" (input)="checkAnswer(option,quiz)"/>
+          {{ option }}
+
+        </label>
+      </div>
+    </div>
+
+    <button (click)="showAnswer(quiz)" class="btn btn-primary show-answer-button">Show Answer</button>
+    <p *ngIf="quiz.showCorrectanswer" class="correct-option card-text">Correct Answer: {{ quiz.correctanswer }}</p>
+     <p >{{ quizResult }}</p>
+
+
+
+
+  </div>
+  <hr class="my-4">
+</div>

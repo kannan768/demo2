@@ -1,0 +1,40 @@
+<!-- addquiz.component.html -->
+
+<div class="quiz-container">
+  <form [formGroup]="quizForm" (ngSubmit)="addQuiz()" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <select id="subject" formControlName="subject" class="form-control">
+        <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="question">Question:</label>
+      <textarea id="question" formControlName="question" class="form-control"></textarea>
+    </div>
+
+    <div formArrayName="options" class="options-container">
+      <div *ngFor="let option of optionsArray.controls; let i = index" class="option-group">
+        <div [formGroupName]="i">
+          <label for="option{{ i }}">Option {{ i + 1 }}:</label>
+          <input type="text" [id]="'option' + i" formControlName="value" class="form-control" />
+          <button type="button" (click)="removeOption(i)" class="btn btn-outline-danger">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="addOption()" class="btn btn-outline-primary">Add Option</button>
+
+    <div class="form-group">
+      <label for="correctanswer">Correct Answer:</label>
+      <input type="text" id="correctanswer" formControlName="correctanswer" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Quiz</button>
+  </form>
+
+  <div *ngIf="message" class="success-message alert alert-success">
+    {{ message }}
+  </div>
+</div>

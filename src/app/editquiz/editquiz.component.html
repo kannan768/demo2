@@ -1,0 +1,36 @@
+<!-- <div class="container mt-4">
+  <form [formGroup]="quizForm" (ngSubmit)="updateQuiz()">
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <select id="subject" class="form-control" formControlName="subject">
+        <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="question">Question:</label>
+      <input type="text" id="question" class="form-control" formControlName="question" />
+    </div>
+
+    <div formArrayName="options">
+      <div *ngFor="let option of optionsArray.controls; let i = index">
+        <label>
+          Option {{ i + 1 }}:
+          <input type="text" [formControl]="option.get('value')" />
+          <button type="button" (click)="removeOption(i)">Remove</button>
+        </label>
+      </div>
+    </div>
+
+    <button type="button" (click)="addOption()">Add Option</button>
+
+    <div class="form-group">
+      <label for="correctanswer">Correct Answer:</label>
+      <input type="text" id="correctanswer" class="form-control" formControlName="correctanswer" />
+    </div>
+
+    <button type="submit">Update Quiz</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div> -->
